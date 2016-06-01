@@ -1,9 +1,11 @@
 var router = require('koa-router')();
 
-router.get('/', function *(next) {
-  yield this.render('index', {
-    title: 'Hello World Koa!'
-  });
-});
+router.get('/', async function (ctx, next) {
+  ctx.state = {
+    title: 'koa2 title'
+  };
 
+  await ctx.render('index', {
+  });
+})
 module.exports = router;
